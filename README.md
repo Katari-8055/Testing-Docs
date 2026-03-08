@@ -32,7 +32,3 @@ JSDoc helps developers understand how a function works by describing its paramet
 
 To use this project locally, follow these steps.
 
-### 1 Clone the repository
-
-```bash
-git clone https://github.com/your-username/your-repository.git
