@@ -1,0 +1,17 @@
+name: Trigger Docs Build on Code Push
+
+on:
+  push:
+    branches:
+      - main  # (Ya jis branch pe update hone pe aap docs banana chahte ho, jaise 'master')
+
+jobs:
+  notify-docs-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send signal to Docs Repository
+        run: |
+          curl -X POST https://api.github.com/repos/YOUR-GITHUB-USERNAME/Testing-Webpack-Demo/dispatches \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.DOCS_PAT_TOKEN }}" \
+          -d '{"event_type": "update-docs-event"}'
