@@ -3,7 +3,7 @@ name: Trigger Docs Build on Code Push
 on:
   push:
     branches:
-      - main  # (Ya jis branch pe update hone pe aap docs banana chahte ho, jaise 'master')
+      - main
 
 jobs:
   notify-docs-repo:
@@ -11,7 +11,19 @@ jobs:
     steps:
       - name: Send signal to Docs Repository
         run: |
-          curl -X POST https://api.github.com/repos/Katari-8055/Automatic-Docs-Generater-PipeLine/dispatches \
-          -H "Accept: application/vnd.github.v3+json" \
-          -H "Authorization: token ${{ secrets.DOCS_PAT_TOKEN }}" \
-          -d '{"event_type": "update-docs-event"}'
+          HTTP_RESPONSE=$(curl -s -o response.txt -w "%{http_code}" \
+            -X POST https://api.github.com/repos/Katari-8055/Automatic-Docs-Generater-PipeLine/dispatches \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.DOCS_PAT_TOKEN }}" \
+            -d '{"event_type": "update-docs-event"}')
+          
+          echo "HTTP Status Code: $HTTP_RESPONSE"
+          echo "Response Body:"
+          cat response.txt
+          
+          if [ "$HTTP_RESPONSE" != "204" ]; then
+            echo "ERROR: Expected 204 but got $HTTP_RESPONSE"
+            exit 1
+          fi
+          
+          echo "Signal sent successfully!"
