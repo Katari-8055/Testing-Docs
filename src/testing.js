@@ -1,23 +1,23 @@
 /**
- * Subtracts the second number from the first number.
+ * Adds the second number to the first number.
  *
  * This function takes two numeric values as input and returns
- * the result of subtracting the second value from the first.
+ * the result of adding the second value to the first.
  * It is commonly used in basic arithmetic operations where
- * the difference between two numbers needs to be calculated.
+ * the sum of two numbers needs to be calculated.
  *
  * The function expects valid numeric inputs. If non-numeric
  * values are provided, the result may be `NaN` depending on
  * JavaScript's type coercion behavior.
  *
  * Example:
- * subtract(10, 4) // returns 6
+ * add(10, 4) // returns 14
  *
- * @param {number} a - The first number (minuend) from which another number will be subtracted.
- * @param {number} b - The second number (subtrahend) that will be subtracted from the first number.
+ * @param {number} a - The first number (addend) to which another number will be added.
+ * @param {number} b - The second number (addend) that will be added to the first number.
  *
- * @returns {number} The difference between the first and second numbers.
+ * @returns {number} The sum of the first and second numbers.
  */
-function subtract(a, b) {
-  return a - b;
+function add(a, b) {
+  return a + b;
 }
