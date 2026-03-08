@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Send signal to Docs Repository
         run: |
-          curl -X POST https://api.github.com/repos/Katari-8055/Testing-Webpack-Demo/dispatches \
+          curl -X POST https://api.github.com/repos/Katari-8055/Automatic-Docs-Generater-PipeLine/dispatches \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.DOCS_PAT_TOKEN }}" \
           -d '{"event_type": "update-docs-event"}'
