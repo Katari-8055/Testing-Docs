@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Katari-8055/Testing-Docs/issues"
   },
-  "homepage": "https://github.com/Katari-8055/Testing-Docs#readme"
+  "homepage": "https://github.com/Katari-8055/Testing-Docs#readme",
+  "dependencies": {
+    "mongoose": "^9.2.4"
+  }
 }
